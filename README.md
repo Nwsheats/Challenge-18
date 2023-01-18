@@ -92,7 +92,7 @@ N/A
   
 GitHub Repository Link: https://github.com/nwsheats/
 
-Video Walkthrough Link: 
+Video Walkthrough Link: https://www.youtube.com/watch?v=P0NaEABRzW4
   
 If you have additional questions, please reach out to me at nwsheats@gmail.com
   
