@@ -49,5 +49,3 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
 }
-
-// reactions in thoughtController is identical to Friends
