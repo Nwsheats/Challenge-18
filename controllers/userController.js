@@ -40,7 +40,7 @@ module.exports = {
     },
     addFriend(req, res) {
         console.log('params', req.params)
-        Users.findOneAndUpdate({_id: req.params.userid}, {$addtoSet: {friends: req.params.friendId}}, {new: true})
+        Users.findOneAndUpdate({_id: req.params.userid}, {$addToSet: {friends: req.params.friendId}}, {new: true})
         .then((user) => {
             console.log(user)
             if (!user) {

@@ -40,13 +40,14 @@ module.exports = {
         console.log(req.body, req.params.thoughtId)
         Thoughts.findOneAndUpdate(
             {_id: req.params.thoughtId},
-            {$addtoSet: {reactions: req.body}},
+            {$addToSet: {reactions: req.body}},
             {new: true})
         .then((thought) => res.json(thought))
         .catch((err) => res.status(500).json(err));
     },
     removeReaction(req, res) {
-        Thoughts.findOneAndUpdate({_id: req.params.thoughtId}, {$pull: {reactions: req.params.reactionId}}, {new: true})
+        console.log(req.params.reactionId, req.params.thoughtId)
+        Thoughts.findOneAndUpdate({_id: req.params.thoughtId}, {$pull: {reactions: {reactionId: req.params.reactionId}}}, {new: true})
         .then((thought) => res.json(thought))
         .catch((err) => res.status(500).json(err));
     },
