@@ -37,7 +37,6 @@ const thoughtSchema = new Schema(
             default: Date.now,
             get: function (Date) {
                 return Date
-                // use Moment or Day or just JS to format the timestamp
             }
         },
         username: {
