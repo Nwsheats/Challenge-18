@@ -39,9 +39,18 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
     addFriend(req, res) {
+        console.log('params', req.params)
         Users.findOneAndUpdate({_id: req.params.userid}, {$addtoSet: {friends: req.params.friendId}}, {new: true})
-        .then((user) => res.json(user))
-        .catch((err) => res.status(500).json(err));
+        .then((user) => {
+            console.log(user)
+            if (!user) {
+                return res.status(404).json({ message: 'Not a valid ID'});
+            }
+            res.json(user)}) 
+        .catch((err) => {
+            console.log('string')
+            res.status(500).json(err)}
+        );
     },
     removeFriend(req, res) {
         Users.findOneAndUpdate({_id: req.params.userid}, {$pull: {friends: req.params.friendId}}, {new: true})
